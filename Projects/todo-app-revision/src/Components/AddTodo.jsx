@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./AddTodo.module.css";
+import { MdAddTask } from "react-icons/md";
 
 function AddTodo({onClick}) {
   const [todoName, setTodoName] = useState('');
@@ -44,7 +45,7 @@ function AddTodo({onClick}) {
         </div>
         <div className="col-2">
           <button className="btn-solid btn-styled theme-success kg-button" onClick={handleAddButtonClick}>
-            Add
+            <MdAddTask />
           </button>
         </div>
       </div>
