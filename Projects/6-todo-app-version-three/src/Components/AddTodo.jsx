@@ -3,8 +3,8 @@ import styles from "./AddTodo.module.css";
 import { BiMessageAdd } from "react-icons/bi";
 
 function AddTodo({ onNewItem }) {
-  const [todoName, setTodoName] = useState('');
-  const [dueDate, setDueDate] = useState('');
+  const [todoName, setTodoName] = useState("");
+  const [dueDate, setDueDate] = useState("");
 
   const handleNameChange = (event) => {
     setTodoName(event.target.value);
@@ -14,7 +14,8 @@ function AddTodo({ onNewItem }) {
     setDueDate(event.target.value);
   };
 
-  const handleAddButtonClicked = () => {
+  const handleAddButtonClicked = (event) => {
+    event.preventDefault();
     onNewItem(todoName, dueDate);
     setDueDate("");
     setTodoName("");
@@ -22,7 +23,7 @@ function AddTodo({ onNewItem }) {
 
   return (
     <div className="container text-center">
-      <div className="row kg-row">
+      <form className="row kg-row" onSubmit={handleAddButtonClicked}>
         <div className="col-6">
           <input
             className={styles.addtodoInput}
@@ -30,7 +31,6 @@ function AddTodo({ onNewItem }) {
             placeholder="Enter Todo Here"
             value={todoName}
             onChange={handleNameChange}
-            
           ></input>
         </div>
         <div className="col-4">
@@ -39,18 +39,17 @@ function AddTodo({ onNewItem }) {
             type="date"
             value={dueDate}
             onChange={handleDateChange}
-            
           ></input>
         </div>
         <div className="col-2">
           <button
+            type="submit"
             className="btn-solid btn-styled theme-success kg-button"
-            onClick={handleAddButtonClicked}
           >
             <BiMessageAdd />
           </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 }

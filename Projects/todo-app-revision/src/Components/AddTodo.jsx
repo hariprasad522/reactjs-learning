@@ -2,26 +2,23 @@ import { useState } from "react";
 import styles from "./AddTodo.module.css";
 import { MdAddTask } from "react-icons/md";
 
-function AddTodo({onClick}) {
-  const [todoName, setTodoName] = useState('');
-  const [dueDate, setDueDate] = useState('');
+function AddTodo({ onClick }) {
+  const [todoName, setTodoName] = useState("");
+  const [dueDate, setDueDate] = useState("");
 
   const handleNameChange = (event) => {
     setTodoName(event.target.value);
-    
   };
 
   const handleDateChange = (event) => {
     setDueDate(event.target.value);
-    
   };
 
   const handleAddButtonClick = (event) => {
-    
-    onClick(todoName,dueDate);
-    setTodoName('');
-    setDueDate('');
-  }
+    onClick(todoName, dueDate);
+    setTodoName("");
+    setDueDate("");
+  };
 
   return (
     <div className="container text-center">
@@ -44,7 +41,11 @@ function AddTodo({onClick}) {
           ></input>
         </div>
         <div className="col-2">
-          <button className="btn-solid btn-styled theme-success kg-button" onClick={handleAddButtonClick}>
+          <button
+            type="button"
+            className="btn-solid btn-styled theme-success kg-button"
+            onClick={handleAddButtonClick}
+          >
             <MdAddTask />
           </button>
         </div>
