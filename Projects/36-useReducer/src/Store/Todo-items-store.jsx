@@ -8,8 +8,8 @@ export const TodoItemsContext = createContext({
 });
 
 const todoItemsReducer = (currentTodoItems, action) => {
+  
   let newTodoItems = currentTodoItems;
-
   if (action.type === "ADD_ITEM") {
     newTodoItems = [
       ...currentTodoItems,
