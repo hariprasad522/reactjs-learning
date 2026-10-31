@@ -2,7 +2,7 @@ const Sidebar = ({ selectedTab, setSelectedTab }) => {
   return (
     <div
       className="d-flex flex-column flex-shrink-0 p-3 bg-black sidebar"
-      style={{ width: "280px" }}
+      style={{ width: "180px" }}
       data-bs-theme="dark"
     >
       <a
