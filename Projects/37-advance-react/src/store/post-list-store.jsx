@@ -13,16 +13,13 @@ const postListReducer = (currPostList, action) => {
       (post) => post.id !== action.payload.postId,
     );
   } else if (action.type === "ADD_POST") {
-    newPostList = [action.payload,...currPostList]
+    newPostList = [action.payload, ...currPostList];
   }
   return newPostList;
 };
 
 const PostListProvider = ({ children }) => {
-  const [postList, dispatchPostList] = useReducer(
-    postListReducer,
-    DEFAULT_POST_LIST,
-  );
+  const [postList, dispatchPostList] = useReducer(postListReducer, []);
 
   const addPost = (userId, postTitle, postBody, reactions, tags) => {
     // console.log(`${userId},${postTitle},${postBody},${reactions},${tags}`);
@@ -55,24 +52,5 @@ const PostListProvider = ({ children }) => {
     </PostList.Provider>
   );
 };
-
-const DEFAULT_POST_LIST = [
-  {
-    id: "1",
-    title: "Going to Mumbai",
-    body: "Hi friends I am going to Mumbai for my vactions. Hope to enjoy a lot. Peace out",
-    reactions: 2,
-    user_id: "user-9",
-    tags: ["vacation", "Mumbai", "Enjoying"],
-  },
-  {
-    id: "2",
-    title: "Passed bro",
-    body: "After all the strugles of 4 years, finally I made it guyss. Hard to beleive it",
-    reactions: 15,
-    user_id: "user-12",
-    tags: ["Graduated", "Unbelievable"],
-  },
-];
 
 export default PostListProvider;
