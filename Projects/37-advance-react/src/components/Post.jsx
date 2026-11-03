@@ -27,7 +27,7 @@ const Post = ({ post }) => {
           ))}
         </div>
         <div className="alert theme-success reactions" role="alert">
-          <p>This post has been reacted by {post.reactions} people.</p>
+          <p>This post has been liked by {post.reactions.likes} people.</p>
         </div>
       </div>
     </section>
