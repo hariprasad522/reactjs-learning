@@ -21,11 +21,13 @@ const PostList = () => {
       });
 
     return () => {
-      console.log("Cleaning up useEffect");
+      
       controller.abort();
 
     };
   }, []);
+
+  
 
   return (
     <>
